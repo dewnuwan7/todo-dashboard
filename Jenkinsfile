@@ -23,6 +23,14 @@ stages{
         }
     }
 
+    stage("docker-build"){
+            steps{
+                script{
+                    gv.buildDocker()
+                }
+            }
+        }
+
     stage("deploy"){
         steps{
             script{

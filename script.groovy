@@ -21,6 +21,8 @@ def pushDocker(){
 def cleanupImage(){
     echo "Cleaning docker image from CI Server"
     sh "docker images"
+    sh "docker rmi todo-dashboard-${params.VERSION}"
+    sh "docker images"
 
 }
 
