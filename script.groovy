@@ -17,3 +17,5 @@ def cleanupImage(){
     echo "Cleaning docker image from CI Server"
     sh "docker rmi todo-dashboard-${BUILD_NUMBER}"
 }
+
+return this
