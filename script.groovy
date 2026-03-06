@@ -5,7 +5,7 @@ def buildNode(){
 
 def buildDocker(){
     echo 'Building Docker Image..'
-    sh "docker build -t todo-dashboard-${BUILD_NUMBER} ."
+    sh "docker build -t todo-dashboard-${params.VERSION} ."
 
 }
 
@@ -15,7 +15,7 @@ def pushDocker(){
 }
 def cleanupImage(){
     echo "Cleaning docker image from CI Server"
-    sh "docker rmi todo-dashboard-${BUILD_NUMBER}"
+    sh "docker rmi todo-dashboard-${params.VERSION}"
 }
 
 return this

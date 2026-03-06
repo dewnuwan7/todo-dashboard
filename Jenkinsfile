@@ -1,9 +1,11 @@
 def gv
 
 pipeline{
-
 agent any
 
+parameters {
+    string(name: 'VERSION', defaultValue: '', description: 'Build Version')
+}
 stages{
     stage("init"){
         steps{
