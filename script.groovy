@@ -21,8 +21,7 @@ def pushDocker(){
 def cleanupImage(){
     echo "Cleaning docker image from CI Server"
     sh "docker images"
-    sh "docker rmi todo-dashboard-${BUILD_NUMBER}"
-    sh "docker images"
+
 
 }
 
