@@ -5,12 +5,17 @@ def buildNode(){
 
 def buildDocker(){
     echo 'Building Docker Image..'
-    sh "docker build -t todo-dashboard-${params.VERSION} ."
+    sh "docker build -t dewnuwan/todo-dashboard-${params.VERSION} ."
 
 }
 
 def pushDocker(){
     echo "Deploying Docker Image.."
+    withCredentials[(credentialId: 'docker-hub', passwordVariable: 'PASS', usernameVariable: 'USER')]{
+        sh "echo $PASS | docker login -u $USER --password-stdin"
+        echo "logged in succesfully"
+    }
+
 
 }
 def cleanupImage(){
