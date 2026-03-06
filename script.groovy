@@ -21,7 +21,7 @@ def pushDocker(){
 }
 def cleanupImage(){
     echo "Cleaning docker image from CI Server"
-    sh "docker image"
+    sh "docker images"
 }
 
 return this
