@@ -1,0 +1,5 @@
+{
+  "name": "CI/CD ToDo Dashboard",
+  "description": "A full-stack Node.js and React ToDo application with a dashboard UI, designed for testing CI/CD pipelines.",
+  "requestFramePermissions": []
+}
