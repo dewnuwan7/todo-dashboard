@@ -5,7 +5,7 @@ def buildNode(){
 
 def buildDocker(){
     echo 'Building Docker Image..'
-    sh "docker build -t dewnuwan/todo-dashboard-${params.VERSION} ."
+    sh "docker build -t todo-dashboard-${params.VERSION} ."
 
 }
 
@@ -20,8 +20,6 @@ def pushDocker(){
 }
 def cleanupImage(){
     echo "Cleaning docker image from CI Server"
-    sh "docker images"
-    sh "docker rmi dewnuwan/todo-dashboard-${params.VERSION}"
     sh "docker images"
 
 }
