@@ -11,11 +11,10 @@ def buildDocker(){
 
 def pushDocker(){
     echo "Deploying Docker Image.."
-    withCredentials([usernamePassword(credentialId: 'docker-hub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+    withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
+        sh "docker build -t dewnuwan/java-maven-app:jma-${params.VERSION} ."
         sh "echo $PASS | docker login -u $USER --password-stdin"
-        echo "logged in succesfully"
     }
-
 
 
 
