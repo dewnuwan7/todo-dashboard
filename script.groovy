@@ -12,7 +12,6 @@ def buildDocker(){
 def pushDocker(){
     echo "Deploying Docker Image.."
     withCredentials([usernamePassword(credentialsId: 'docker-hub', passwordVariable: 'PASS', usernameVariable: 'USER')]){
-        sh "docker build -t dewnuwan/java-maven-app:jma-${params.VERSION} ."
         sh "echo $PASS | docker login -u $USER --password-stdin"
     }
 
@@ -22,6 +21,9 @@ def pushDocker(){
 def cleanupImage(){
     echo "Cleaning docker image from CI Server"
     sh "docker images"
+    sh "docker rmi dewnuwan/todo-dashboard-${params.VERSION}"
+    sh "docker images"
+
 }
 
 return this
